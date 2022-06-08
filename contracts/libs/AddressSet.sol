@@ -51,7 +51,7 @@ library AddressSet {
     return self.addresses[self.pointers[key]] == key;
   }
 
-  function keyAtIndex(Set storage self, uint index) internal view returns(address) {
+  function addressAtIndex(Set storage self, uint index) internal view returns(address) {
     return self.addresses[index];
   }
 }

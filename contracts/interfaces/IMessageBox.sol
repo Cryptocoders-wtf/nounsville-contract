@@ -27,7 +27,9 @@ interface IMessageBox {
 
 	function send(address _to, string memory _text) external returns (uint256);
 	function sendAppMessage(address _to, string memory _text, string memory _imageURL, address _app, uint256 _messageId) external returns (uint256);
-	function messageCount(address _from) external returns (uint256);
+	function numberOfSenders() external returns (uint256);
+	function getSender(uint256 _index) external returns (address);
+	function numberOfMessages(address _from) external returns (uint256);
 	function getMessage(address _from, uint256 _index) external returns (Message memory);
 	function markRead(address _from, uint256 _index, bool _isRead) external returns (Message memory);
 	function markDeleted(address _from, uint256 _index, bool _isDeleted) external returns (Message memory);

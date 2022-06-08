@@ -45,7 +45,15 @@ contract MessageBox is Ownable, IMessageBox {
     return _sendAppMessage(_to, _text, "", address(0), 0);
   }
 
-	function messageCount(address _from) external view override returns (uint256) {
+	function numberOfSenders() external view override returns (uint256) {
+    return senders[msg.sender].count();
+  }
+
+	function getSender(uint256 _index) external view override returns (address) {
+    return senders[msg.sender].addressAtIndex(_index);
+  }
+
+	function numberOfMessages(address _from) external view override returns (uint256) {
     return messageCounts[msg.sender][_from];
   }
 
